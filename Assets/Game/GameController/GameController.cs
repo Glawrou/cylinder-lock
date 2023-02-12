@@ -9,20 +9,28 @@ namespace AndreyNosov.CylinderLock.Game
         [SerializeField] private LevelController _levelController;
         [SerializeField] private WindowManager _windowManager;
 
+        [Header("Sound")]
+        [SerializeField] private AudioSource _win;
+        [SerializeField] private AudioSource _lose;
+
         private LevelData[] _levels = new LevelData[]
         {
             new LevelData(
                 new PinData[] { new PinData(5, 0), new PinData(3, 0), new PinData(7, 0) },
-                60,
+                25,
                 new ToolType[] { ToolType.Magnet }),
             new LevelData(
                 new PinData[] { new PinData(3, 10), new PinData(2, 10), new PinData(6, 10) },
-                60,
+                25,
                 new ToolType[] { ToolType.ReMagnet }),
             new LevelData(
-                new PinData[] { new PinData(4, 1), new PinData(3, 8), new PinData(2, 0) },
-                60,
-                new ToolType[] { ToolType.Sin })
+                new PinData[] { new PinData(4, 1), new PinData(3, 6), new PinData(2, 0) },
+                25,
+                new ToolType[] { ToolType.Sin }),
+            new LevelData(
+                new PinData[] { new PinData(4, 6), new PinData(3, 1), new PinData(2, 4) },
+                25,
+                new ToolType[] { ToolType.ReSin })
         };
 
         private int currentLevel = 1;
@@ -39,11 +47,13 @@ namespace AndreyNosov.CylinderLock.Game
 
         private void WinHandler()
         {
+            _win.Play();
             _windowManager.OpenWinWindow();
         }
 
         private void GameOverHandler()
         {
+            _lose.Play();
             _windowManager.OpenWinWindow();
         }
 
