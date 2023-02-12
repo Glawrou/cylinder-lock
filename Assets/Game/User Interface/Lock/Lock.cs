@@ -1,9 +1,13 @@
 using UnityEngine;
+using System;
+using System.Linq;
 
 namespace AndreyNosov.CylinderLock.Game
 {
     public class Lock : MonoBehaviour
     {
+        public Action OnlockOpen;
+
         [SerializeField] private Pin _pinPrefab;
 
         private Pin[] _pins;
@@ -16,6 +20,10 @@ namespace AndreyNosov.CylinderLock.Game
         public void UseTool(ToolType toolType)
         {
             ToolsHanler.UseTool(toolType, _pins);
+            if (!_pins.Any(p => p.IsCorrect == false))
+            {
+                OnlockOpen?.Invoke();
+            }
         }
 
         private void SpawnPins(PinData[] pins)

@@ -57,15 +57,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Game\GameController\LevelData.cs" />
-    <Compile Include="Assets\Game\User Interface\Lock\Lock.cs" />
-    <Compile Include="Assets\Game\GameController\GameController.cs" />
-    <Compile Include="Assets\Game\GameController\PinData.cs" />
-    <Compile Include="Assets\Game\User Interface\Timer\Timer.cs" />
-    <Compile Include="Assets\Game\User Interface\Lock\Pin\Pin.cs" />
-    <Compile Include="Assets\Game\User Interface\Tools\Tool\Tool.cs" />
     <Compile Include="Assets\Game\User Interface\Tools\ToolType.cs" />
+    <Compile Include="Assets\Game\User Interface\Lock\Lock.cs" />
+    <Compile Include="Assets\Game\GameController\LevelController.cs" />
+    <Compile Include="Assets\Game\User Interface\Tools\Tool\Tool.cs" />
+    <Compile Include="Assets\Game\GameController\PinData.cs" />
     <Compile Include="Assets\Game\User Interface\Tools\Tools.cs" />
     <Compile Include="Assets\Game\User Interface\Tools\ToolsHanler.cs" />
+    <Compile Include="Assets\Game\User Interface\Timer\Timer.cs" />
+    <Compile Include="Assets\Game\User Interface\Lock\Pin\Pin.cs" />
+    <Compile Include="Assets\Game\Window\WindowManager.cs" />
+    <Compile Include="Assets\Game\Window\ModalWindow.cs" />
+    <Compile Include="Assets\Game\GameController\GameController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

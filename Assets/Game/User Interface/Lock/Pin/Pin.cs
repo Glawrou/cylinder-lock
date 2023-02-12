@@ -33,6 +33,14 @@ namespace AndreyNosov.CylinderLock.Game
             }
         }
 
+        public bool IsCorrect 
+        { 
+            get 
+            {
+                return _pinValue == _correctValue;
+            } 
+        }
+
         private int _pinValue;
         private int _correctValue;
 

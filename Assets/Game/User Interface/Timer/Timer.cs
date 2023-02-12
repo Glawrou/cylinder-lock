@@ -19,6 +19,16 @@ namespace AndreyNosov.CylinderLock.Game
             _active = true;
         }
 
+        public void Pause()
+        {
+            _active = false;
+        }
+
+        public void Resume()
+        {
+            _active = true;
+        }
+
         private void ShowTimeer(float timer)
         {
             _timerText.text = "" + Mathf.Ceil(timer);

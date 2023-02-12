@@ -13,6 +13,7 @@ namespace AndreyNosov.CylinderLock.Game
 
         public void Fill(LevelData level)
         {
+            ClearTools();
             var toolsCount = level.ToolsType.Length;
             _tools = new Tool[toolsCount];
             for (var i = 0; i < toolsCount; i++)
@@ -24,6 +25,19 @@ namespace AndreyNosov.CylinderLock.Game
             foreach (var tool in _tools)
             {
                 tool.OnUseTool += ClickHandler;
+            }
+        }
+
+        private void ClearTools()
+        {
+            if (_tools == null)
+            {
+                return;
+            }
+
+            for (var i = 0; i < _tools.Length; i++)
+            {
+                Destroy(_tools[i].gameObject);
             }
         }
 
