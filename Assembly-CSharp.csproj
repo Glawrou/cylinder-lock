@@ -56,9 +56,16 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Game\GameController\LevelData.cs" />
+    <Compile Include="Assets\Game\User Interface\Lock\Lock.cs" />
+    <Compile Include="Assets\Game\GameController\GameController.cs" />
+    <Compile Include="Assets\Game\GameController\PinData.cs" />
     <Compile Include="Assets\Game\User Interface\Timer\Timer.cs" />
     <Compile Include="Assets\Game\User Interface\Lock\Pin\Pin.cs" />
-    <Compile Include="Assets\Game\User Interface\Lock\Lock.cs" />
+    <Compile Include="Assets\Game\User Interface\Tools\Tool\Tool.cs" />
+    <Compile Include="Assets\Game\User Interface\Tools\ToolType.cs" />
+    <Compile Include="Assets\Game\User Interface\Tools\Tools.cs" />
+    <Compile Include="Assets\Game\User Interface\Tools\ToolsHanler.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

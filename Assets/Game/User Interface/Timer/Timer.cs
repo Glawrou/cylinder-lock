@@ -13,9 +13,9 @@ namespace AndreyNosov.CylinderLock.Game
         private float _remainingTime;
         private bool _active = false;
 
-        public void StartTimer(float time)
+        public void StartTimer(LevelData level)
         {
-            _remainingTime = time;
+            _remainingTime = level.Timer;
             _active = true;
         }
 

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace AndreyNosov.CylinderLock.Game
@@ -10,13 +8,25 @@ namespace AndreyNosov.CylinderLock.Game
 
         private Pin[] _pins;
 
-        public void SpawnPins(int number)
+        public void Fill(LevelData level)
+        {
+            SpawnPins(level.Pins);
+        }
+
+        public void UseTool(ToolType toolType)
+        {
+            ToolsHanler.UseTool(toolType, _pins);
+        }
+
+        private void SpawnPins(PinData[] pins)
         {
             ClearPins();
-            _pins = new Pin[number];
-            for (var i = 0; i < number; i++)
+            var pinsCount = pins.Length;
+            _pins = new Pin[pinsCount];
+            for (var i = 0; i < pinsCount; i++)
             {
                 _pins[i] = Instantiate(_pinPrefab, transform);
+                _pins[i].Fill(pins[i]);
             }
         }
 

@@ -34,10 +34,10 @@ namespace AndreyNosov.CylinderLock.Game
         private const int MinValue = 0;
         private const int MaxValue = 10;
 
-        public void Fill(int pinValue, int ñorrectValue)
+        public void Fill(PinData pinData)
         {
-            PinValue = Mathf.Clamp(pinValue, MinValue, MaxValue);
-            _correctValue = Mathf.Clamp(ñorrectValue, MinValue, MaxValue);
+            PinValue = Mathf.Clamp(pinData.Value, MinValue, MaxValue);
+            _correctValue = Mathf.Clamp(pinData.CorrectValue, MinValue, MaxValue);
         }
 
         private void ShowPinValue(int value)
