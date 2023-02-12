@@ -12,14 +12,18 @@ namespace AndreyNosov.CylinderLock.Game
         [SerializeField] private Timer _timer;
         [SerializeField] private Tools _tools;
 
+        private void Start()
+        {
+            _tools.OnUseTool += UseToolsHanler;
+            _timer.OnEndTimer += OnEndTimerHandler;
+            _lock.OnlockOpen += OnAllPinOpen;
+        }
+
         public void Fill(LevelData level)
         {
             _lock.Fill(level);
             _timer.StartTimer(level);
             _tools.Fill(level);
-            _tools.OnUseTool += UseToolsHanler;
-            _timer.OnEndTimer += OnEndTimerHandler;
-            _lock.OnlockOpen += OnAllPinOpen;
         }
 
         private void UseToolsHanler(ToolType toolType)
