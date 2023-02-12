@@ -11,6 +11,7 @@ namespace AndreyNosov.CylinderLock.Game
         [SerializeField] private Lock _lock;
         [SerializeField] private Timer _timer;
         [SerializeField] private Tools _tools;
+        [SerializeField] private LevelNumber _levelNumber;
 
         private void Start()
         {
@@ -19,11 +20,12 @@ namespace AndreyNosov.CylinderLock.Game
             _lock.OnlockOpen += OnAllPinOpen;
         }
 
-        public void Fill(LevelData level)
+        public void Fill(LevelData level, int levelNumber)
         {
             _lock.Fill(level);
             _timer.StartTimer(level);
             _tools.Fill(level);
+            _levelNumber.Fill(levelNumber);
         }
 
         private void UseToolsHanler(ToolType toolType)

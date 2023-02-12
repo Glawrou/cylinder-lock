@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Audio;
 
-namespace AndreyNosov.CylinderLock.Game
+namespace AndreyNosov.CylinderLock.Menu
 {
     public class AudioManager : MonoBehaviour
     {

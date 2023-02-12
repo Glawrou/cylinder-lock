@@ -23,6 +23,11 @@ namespace AndreyNosov.CylinderLock.Game
             }
             set
             {
+                if (_frozen)
+                {
+                    return;
+                }
+
                 _pinValue = Mathf.Clamp(value, MinValue, MaxValue);
                 if (_pinValue == _correctValue)
                 {
@@ -42,20 +47,38 @@ namespace AndreyNosov.CylinderLock.Game
         }
 
         private int _pinValue;
+        private int _defaultValue;
         private int _correctValue;
 
         private const int MinValue = 0;
         private const int MaxValue = 10;
 
+
+        private bool _frozen = false;
+
         public void Fill(PinData pinData)
         {
-            PinValue = Mathf.Clamp(pinData.Value, MinValue, MaxValue);
+            _defaultValue = Mathf.Clamp(pinData.Value, MinValue, MaxValue);
+            PinValue = _defaultValue;
             _correctValue = Mathf.Clamp(pinData.CorrectValue, MinValue, MaxValue);
+        }
+
+        public void ResetValue()
+        {
+            PinValue = _defaultValue;
+        }
+
+        public void FrozenValue()
+        {
+            if (PinValue == _correctValue)
+            {
+                _frozen = true;
+            }
         }
 
         private void ShowPinValue(int value)
         {
-            _progressBar.fillAmount = value == _correctValue ? 1 : (float)_pinValue / MaxValue;
+            _progressBar.fillAmount = (float)_pinValue / MaxValue;
             _progressBar.color = value == _correctValue ? _correnct : _noCorrenct;
             _pinValueText.text = "" + value;
         }

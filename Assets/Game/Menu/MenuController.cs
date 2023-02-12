@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-namespace AndreyNosov.CylinderLock.Game
+namespace AndreyNosov.CylinderLock.Menu
 {
     public class MenuController : MonoBehaviour
     {

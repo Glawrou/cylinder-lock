@@ -1,3 +1,5 @@
+using UnityEngine;
+
 namespace AndreyNosov.CylinderLock.Game
 {
     public static class ToolsHanler
@@ -7,13 +9,19 @@ namespace AndreyNosov.CylinderLock.Game
             switch (tool)
             {
                 case ToolType.Sin:
-                    return "-1|+1|-1|+1";
+                    return "-1|+1|-1";
                 case ToolType.ReSin:
-                    return "+1|-1|+1|-1";
+                    return "+1|-1|+1";
                 case ToolType.Magnet:
-                    return "0|0|0|0";
+                    return "0|0|0";
                 case ToolType.ReMagnet:
-                    return "10|10|10|10";
+                    return "10|10|10";
+                case ToolType.Random:
+                    return "Random";
+                case ToolType.Reset:
+                    return "Default";
+                case ToolType.Frozen:
+                    return "Frozen";
                 default:
                     return "";
             }
@@ -34,6 +42,15 @@ namespace AndreyNosov.CylinderLock.Game
                     break;
                 case ToolType.ReMagnet:
                     ToolReMagnet(pins);
+                    break;
+                case ToolType.Random:
+                    ToolRandom(pins);
+                    break;
+                case ToolType.Reset:
+                    ToolReset(pins);
+                    break;
+                case ToolType.Frozen:
+                    ToolFrozen(pins);
                     break;
                 default:
                     break;
@@ -69,6 +86,30 @@ namespace AndreyNosov.CylinderLock.Game
             for (var i = 0; i < pins.Length; i++)
             {
                 pins[i].PinValue = 10;
+            }
+        }
+
+        private static void ToolRandom(Pin[] pins)
+        {
+            for (var i = 0; i < pins.Length; i++)
+            {
+                pins[i].PinValue = Random.Range(0, 10);
+            }
+        }
+
+        private static void ToolReset(Pin[] pins)
+        {
+            for (var i = 0; i < pins.Length; i++)
+            {
+                pins[i].ResetValue();
+            }
+        }
+
+        private static void ToolFrozen(Pin[] pins)
+        {
+            for (var i = 0; i < pins.Length; i++)
+            {
+                pins[i].FrozenValue();
             }
         }
     }
