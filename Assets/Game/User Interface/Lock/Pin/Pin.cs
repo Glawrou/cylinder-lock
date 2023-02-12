@@ -9,6 +9,11 @@ namespace AndreyNosov.CylinderLock.Game
         public Action On—orrectValue;
 
         [SerializeField] private Text _pinValueText;
+        [SerializeField] private Image _progressBar;
+        [SerializeField] private AudioSource _audioSource;
+
+        [SerializeField] private Color _noCorrenct;
+        [SerializeField] private Color _correnct;
 
         public int PinValue
         {
@@ -42,11 +47,14 @@ namespace AndreyNosov.CylinderLock.Game
 
         private void ShowPinValue(int value)
         {
+            _progressBar.fillAmount = value == _correctValue ? 1 : (float)_pinValue / MaxValue;
+            _progressBar.color = value == _correctValue ? _correnct : _noCorrenct;
             _pinValueText.text = "" + value;
         }
 
         private void CorrectValueHandler()
         {
+            _audioSource.Play();
             On—orrectValue?.Invoke();
         }
     }
