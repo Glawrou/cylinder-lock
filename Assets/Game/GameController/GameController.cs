@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace AndreyNosov.CylinderLock.Game
 {
@@ -12,6 +13,8 @@ namespace AndreyNosov.CylinderLock.Game
         [Header("Sound")]
         [SerializeField] private AudioSource _win;
         [SerializeField] private AudioSource _lose;
+
+        private const string MenuSceneName = "Menu";
 
         private LevelData[] _levels = new LevelData[]
         {
@@ -75,7 +78,7 @@ namespace AndreyNosov.CylinderLock.Game
 
         private void ClickExitHandler()
         {
-            
+            SceneManager.LoadScene(MenuSceneName);
         }
 
         private void ClickGoFirstLevelHandler()

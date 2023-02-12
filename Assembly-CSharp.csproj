@@ -69,6 +69,8 @@
     <Compile Include="Assets\Game\Window\WindowManager.cs" />
     <Compile Include="Assets\Game\Window\ModalWindow.cs" />
     <Compile Include="Assets\Game\GameController\GameController.cs" />
+    <Compile Include="Assets\Game\Menu\MenuController.cs" />
+    <Compile Include="Assets\Audio\AudioManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

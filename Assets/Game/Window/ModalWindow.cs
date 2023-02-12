@@ -60,7 +60,7 @@ namespace AndreyNosov.CylinderLock.Game
 
         private void ClickFalseHandler()
         {
-            OnClickTrue?.Invoke();
+            OnClickFalse?.Invoke();
         }
 
         public void Close()
